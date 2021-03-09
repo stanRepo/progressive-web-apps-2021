@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>X- Value</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <main>
+      <header class="title">
+        <a href="#"><h1>X Value</h1></a>
+      </header>
+      <!-- Input section for searching Tickers and their data -->
+
+      <!-- <a href="#details/BTC">#details</a> -->
+
+      <!-- <a href="#adadadas">router wildcard test</a> -->
+      <!-- <button id="clearCache">Empty Cache</button> -->
+      <!-- <section>
+        <input
+          class="inputTicker"
+          name="inputTicker"
+          type="text"
+          aria-label="input crypto ticker"
+          placeholder="search ticker e.a. BTC / ADA / AGI"
+        />
+        <label for="inputTicker"></label>
+        <button class="searchBtn" type="submit">Submit</button>
+      </section> -->
+
+      <!-- Add wallet as soon as localStorage is done -->
+      <section class="wallet"></section>
+
+      <section class="overview">
+        <div class="loader display-none"></div>
+        <table class="overviewTable">
+          <h3>A Crypto SPA</h3>
+          <p>The Market is: <span id="marketSentiment"></span></p>
+          <b>X-value = % of all %ΔPrice in EUR in the last 24H.</b>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th></th>
+              <th class="hideOnMediumScreen"></th>
+              <th>Price</th>
+              <th class="hideOnSmallerScreen">Market Capitalization</th>
+              <th class="hideOnSmallScreen">Cirulating Supply</th>
+              <th class="hideOnMediumScreen">Max Supply</th>
+              <th class="">
+                X Value <br />
+                avg: <span id="headerX" class="percentageDeltaPrice"></span>
+
+                <form action="" id="calculatePositionForm">
+                  <!-- <input type="text" placeholder="BTC" id="inputTicker" />
+                  <input
+                    id="investment"
+                    type="number"
+                    placeholder="# position"
+                  />
+                  <button type="submit">Calculate</button> -->
+                </form>
+              </th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr class="data display-none">
+              <td>{{ listNumber }}</td>
+              <td>
+                &nbsp;
+                <a href="index.html#details/{{ Name }} "
+                  ><object data="{{ imageUrl }}" type="image/png"></object
+                ></a>
+
+                <a href="index.html#details/{{ Name }}">{{ FullName }} </a>
+
+                <!-- <img
+                    src="imageNotFound.png"
+                    alt="Image not found"
+                    onerror="this.onerror=null;this.src='{{ FullName }}';"
+                    /> -->
+              </td>
+              <td class="hideOnMediumScreen">&nbsp;{{ Name }}</td>
+              <td>
+                &nbsp;{{ Price }}
+                <span class="percentageDeltaPrice"
+                  >{{ ChangePCT24Hrs }}<b>%</b></span
+                >
+              </td>
+              <td class="hideOnSmallerScreen MarketCap">
+                &nbsp;{{ MarketCap }}
+              </td>
+              <td class="hideOnSmallScreen">&nbsp; {{ Supply }}</td>
+              <td class="hideOnMediumScreen">&nbsp;{{ maxSupply }}</td>
+              <td class="coin{{ Name }} percentageDeltaPrice">&nbsp;</td>
+              <td class="display-none MarketCapRAW">{{ MarketCapRAW }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <ul class="extraInfoSection">
+          <ul id="extraInfo" class="display-none">
+            <img src="{{ imageUrl }}" />
+            <li>
+              <h1>{{ Name }}</h1>
+            </li>
+            <li>
+              <h3>Extra Information</h3>
+              Algorithm : {{ Algorithm }} <br />
+              ProofType: {{ ProofType }} <br />
+              Asset Launch Date: {{ AssetLaunchDate }} <br />
+            </li>
+            <li>
+              <h3>Change 24H</h3>
+              <p>{{ Change24Hrs }}</p>
+              <p>{{ ChangePCT24Hrs }}%</p>
+            </li>
+            <li>
+              <h3>Description</h3>
+              <p class="coinDiscription">{{ Description }}</p>
+            </li>
+            <li></li>
+          </ul>
+        </ul>
+      </section>
+    </main>
+
+    <script src="javascripts/vendor/routie.js"></script>
+    <script src="javascripts/app.js" type="module"></script>
+  </body>
+</html>
