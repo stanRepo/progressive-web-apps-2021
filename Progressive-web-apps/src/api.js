@@ -4,15 +4,19 @@ const fetch = require("fetch").fetchUrl;
 module.exports = async () => {
   let res = await Promise.all(
     endPoints.initialLists.map((e) => {
-      const x = fetch(e.url, function (error, meta, body) {
-        if (error) {
-          console.log(error);
-        }
-        // console.log(body.toString());
-        return body.toString();
+      return new Promise((resolve, reject) => {
+        const x = fetch(e.url, function (error, meta, body) {
+          if (error) {
+            console.log(error);
+            reject(error);
+          }
+          resolve(body);
+        });
+        return x;
       });
-      return x;
     })
-  ).catch((e) => console.log(e));
+  ).catch((e) => {
+    console.log(e);
+  });
   return res;
 };

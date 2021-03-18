@@ -1,0 +1,8 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>X- Value</title><link rel="stylesheet" href="../style.min.css" /></head><body><main><header class="title"><a href="#"><h1>X Value</h1></a></header><!-- Input section for searching Tickers and their data --><!-- <a href="#details/BTC">#details</a>--><!-- <a href="#adadadas">router wildcard test</a>--><!-- <button id="clearCache">Empty Cache</button>--><!-- <section><input
+          class="inputTicker"
+          name="inputTicker"
+          type="text"
+          aria-label="input crypto ticker"
+          placeholder="search ticker e.a. BTC / ADA / AGI"
+        /><label for="inputTicker"></label><button class="searchBtn" type="submit">Submit</button></section>--><!-- Add wallet as soon as localStorage is done --><section class="wallet"></section><section class="overview"><div class="loader display-none"></div><table class="overviewTable"><h3>A Crypto SPA</h3><p>The Market is:<span id="marketSentiment"></span></p><b>X-value = % of all %ΔPrice in EUR in the last 24H.</b><thead><tr><th>#</th><th></th><th class="hideOnMediumScreen"></th><th>Price</th><th class="hideOnSmallerScreen">Market Capitalization</th><th class="hideOnSmallScreen">Cirulating Supply</th><th class="hideOnMediumScreen">Max Supply</th><th class="">X Value<br />avg:<span id="headerX" class="percentageDeltaPrice"></span></th></tr></thead><tbody><% obj.forEach(function(coin, i){ %><%-
+            include('partials/tableRow', {data:[coin, i]}); %><% }); %></tbody></table></section></main></body></html>
