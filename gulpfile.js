@@ -2,7 +2,8 @@ const gulp = require("gulp");
 const plumber = require("gulp-plumber");
 const rename = require("gulp-rename");
 const cleanCSS = require("gulp-clean-css");
-const minifyejs = require("gulp-minify-ejs");
+const minify = require("gulp-minify");
+
 // css tasks
 
 gulp.task("css", function () {
@@ -23,10 +24,13 @@ gulp.task("watch", function () {
   gulp.watch("./public/stylesheets/*.css");
 });
 
-gulp.task("minify-ejs", function () {
+gulp.task("js", function () {
   return gulp
-    .src(["./views/*.ejs", "./views/partials/*.ejs"])
-    .pipe(minifyejs())
+    .src([
+      "./public/javascripts/service-worker.js",
+      "./public/javascripts/start-service-worker.js",
+    ])
+    .pipe(minify())
     .pipe(rename({ suffix: ".min" }))
-    .pipe(gulp.dest("./_dist/src"));
+    .pipe(gulp.dest("_dist/js"));
 });

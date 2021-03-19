@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "build": "nodemon ./bin/www",
-    "prebuild": "gulp css",
+    "prebuild": "gulp css && gulp js",
     "build:watch": "gulp watch",
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "dev": "nodemon ./bin/www"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -15,6 +16,7 @@
     "express": "~4.16.1",
     "fetch": "^1.1.0",
     "gulp-clean-css": "^4.3.0",
+    "gulp-minify": "^3.1.0",
     "gulp-minify-ejs": "^1.0.3",
     "gulp-plumber": "^1.2.1",
     "gulp-rename": "^2.0.0",
