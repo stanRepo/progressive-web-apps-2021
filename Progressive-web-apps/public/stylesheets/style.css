@@ -1,0 +1,180 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap");
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  background-color: honeydew;
+}
+.setMoodRed {
+  border: 1vw solid red;
+}
+.setMoodGreen {
+  border: 1vw solid green;
+}
+header {
+  text-align: center;
+  background-color: ivory;
+}
+h1 {
+  font-size: 10vh;
+  margin: 0;
+}
+h3 {
+  text-decoration: underline;
+}
+table {
+  margin: 0vw 5vw;
+}
+thead {
+  background-color: rgb(76, 0, 255);
+  color: white;
+}
+.overviewTable {
+  border: 1px solid #c0c0c0;
+  border-collapse: collapse;
+  padding: 5px;
+}
+.overviewTable th {
+  /* border: 1px solid #000000; */
+  padding: 5px;
+  background-color: rgb(76, 0, 255);
+  font-size: large;
+  position: sticky;
+  top: 0;
+  transition: 0.1s;
+  z-index: 10;
+}
+a {
+  text-decoration: none;
+}
+.display-none {
+  display: none;
+}
+
+.overview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+td {
+  text-align: center;
+}
+.coin {
+  transition: 0.1s;
+}
+.coin:hover {
+  transform: scale(1.05);
+}
+
+.overviewTable td {
+  /* border: 0px solid #f7323200; */
+  padding: 7px;
+
+  font-size: large;
+  font-weight: 900;
+}
+.overviewTable {
+  background-color: honeydew;
+}
+/* Table Column # */
+tr td:nth-child(1) {
+  font-size: 15px;
+}
+/* Table Column Coin Fullname */
+tr td:nth-child(2) {
+  /* font-family: monospace; */
+  text-align: left;
+  /* display: flex; */
+  /* flex-direction: row; */
+  align-items: center;
+  font-size: small;
+}
+/* Table Column Ticker */
+tr td:nth-child(3) {
+  font-family: monospace;
+  font-size: 30px / 10vw;
+  /* width: 20vw; */
+}
+.greenNumber {
+  color: rgb(0, 197, 0);
+  background-color: rgb(194, 255, 194);
+}
+.redNumber {
+  color: red;
+  background-color: rgb(255, 191, 191);
+}
+span {
+  font-size: small;
+}
+/* Table Column Price */
+tr td + th:nth-child(4) {
+  min-width: 25vw;
+}
+td img,
+object {
+  max-width: 5vw;
+  max-height: 5vw;
+  border-radius: 50%;
+  box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.75);
+}
+/* Table Column MarketCap */
+/* Table Column Circulating Supply */
+/*  */
+details {
+  padding: 5px 10px;
+  font-size: medium;
+  max-width: 220px;
+}
+/* Description */
+#dataDetails0 > li:nth-child(4) > p {
+  max-width: 30ch;
+}
+
+@media screen and (max-width: 680px) {
+  .hideOnSmallScreen {
+    display: none;
+  }
+}
+@media screen and (max-width: 420px) {
+  .hideOnSmallerScreen {
+    display: none;
+  }
+}
+@media screen and (max-width: 950px) {
+  .hideOnMediumScreen {
+    display: none;
+  }
+}
+ul {
+  list-style: none;
+}
+
+.details {
+  font-weight: bold;
+}
+
+.details img {
+  position: absolute;
+  opacity: 20%;
+  width: 40vh;
+  height: 40vh;
+  right: 25px;
+  border-radius: 50%;
+}
+.loader {
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
