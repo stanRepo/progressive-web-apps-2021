@@ -33,5 +33,6 @@ Register for free and get your API key on [Cryptocompare](https://min-api.crypto
 
 - Service Worker Added
 - Service Worker Caches files and delivers them when needed.
+- Manifest File added
 
 ### Week 3
