@@ -3,7 +3,22 @@ const plumber = require("gulp-plumber");
 const rename = require("gulp-rename");
 const cleanCSS = require("gulp-clean-css");
 const minify = require("gulp-minify");
+const fs = require("fs");
+const path = require("path");
 
+// Delete Old JS Files in _dist Directory
+function deleteOldJS() {
+  fs.readdir("./_dist/js", (e, f) => {
+    if (e) throw e;
+    for (const file of f) {
+      fs.unlinkSync(path.join("./_dist/js", file), (e) => {
+        if (e) throw e;
+      });
+      console.log("Deleted Old JS");
+    }
+  });
+}
+deleteOldJS();
 // css tasks
 
 gulp.task("css", function () {
@@ -26,11 +41,8 @@ gulp.task("watch", function () {
 
 gulp.task("js", function () {
   return gulp
-    .src([
-      "./public/javascripts/service-worker.js",
-      "./public/javascripts/start-service-worker.js",
-    ])
+    .src("public/javascripts/*.js")
     .pipe(minify())
-    .pipe(rename({ suffix: ".min" }))
-    .pipe(gulp.dest("_dist/js"));
+
+    .pipe(gulp.dest("./_dist/js"));
 });
