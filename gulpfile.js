@@ -2,7 +2,23 @@ const gulp = require("gulp");
 const plumber = require("gulp-plumber");
 const rename = require("gulp-rename");
 const cleanCSS = require("gulp-clean-css");
-const minifyejs = require("gulp-minify-ejs");
+const minify = require("gulp-minify");
+const fs = require("fs");
+const path = require("path");
+
+// Delete Old JS Files in _dist Directory
+function deleteOldJS() {
+  fs.readdir("./_dist/js", (e, f) => {
+    if (e) throw e;
+    for (const file of f) {
+      fs.unlinkSync(path.join("./_dist/js", file), (e) => {
+        if (e) throw e;
+      });
+      console.log("Deleted Old JS");
+    }
+  });
+}
+deleteOldJS();
 // css tasks
 
 gulp.task("css", function () {
@@ -23,10 +39,13 @@ gulp.task("watch", function () {
   gulp.watch("./public/stylesheets/*.css");
 });
 
-gulp.task("minify-ejs", function () {
+gulp.task("js", function () {
   return gulp
-    .src(["./views/*.ejs", "./views/partials/*.ejs"])
-    .pipe(minifyejs())
-    .pipe(rename({ suffix: ".min" }))
-    .pipe(gulp.dest("./_dist/src"));
+    .src([
+      "public/javascripts/start-service-worker.js",
+      "public/javascripts/sw.js",
+    ])
+    .pipe(minify({ noSource: true }))
+
+    .pipe(gulp.dest("./_dist/js"));
 });

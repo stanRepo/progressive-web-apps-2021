@@ -15,6 +15,8 @@ const endPoints = {
     //   query: "topListByVolume24Hrs",
     // },
   ],
+  baseLatest: "https://min-api.cryptocompare.com/data/generateAvg?fsym=",
+  extensionLatest: "&tsym=EUR&e=Kraken",
   getSingle: (subject, valuedIn) => {
     let string = `https://min-api.cryptocompare.com/data/pricemultifull?${endPoints.options.subject}${subject}&${endPoints.options.valuedIn}${valuedIn}`;
     const obj = {
