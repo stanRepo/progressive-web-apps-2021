@@ -1,1 +1,1 @@
-"serviceWorker"in navigator&&navigator.serviceWorker.register("./js/sw-min.js").then(function(r){return r.update()});
+"serviceWorker"in navigator&&navigator.serviceWorker.register("/js/sw-min.js").then(function(r){return r.update()});

@@ -41,8 +41,11 @@ gulp.task("watch", function () {
 
 gulp.task("js", function () {
   return gulp
-    .src("public/javascripts/*.js")
-    .pipe(minify())
+    .src([
+      "public/javascripts/start-service-worker.js",
+      "public/javascripts/sw.js",
+    ])
+    .pipe(minify({ noSource: true }))
 
     .pipe(gulp.dest("./_dist/js"));
 });

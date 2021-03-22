@@ -1,5 +1,10 @@
 const CORE_CACHE_NAME = "core-cache";
-const CORE_ASSETS = ["/"];
+const CORE_ASSETS = [
+  "/",
+  "../static/style.min.css",
+  "../manifest/manifest.webmanifest",
+  "../manifest/icon-192x192.png",
+];
 
 self.addEventListener("install", (event) => {
   // do I even exist?
@@ -12,15 +17,15 @@ self.addEventListener("install", (event) => {
 });
 self.addEventListener("activate", (event) => {
   // am I active?
+  console.log("SW - Active");
 });
+
 self.addEventListener("fetch", (event) => {
-  // can I do cool stuff?
-  self.addEventListener("fetch", (event) => {
-    const request = event.request;
-    if (isInCoreCache(request)) {
-      event.respondWidth(
-        caches.open(CORE_CACHE_NAME).then((cache) => cache.match(request.url))
-      );
-    }
-  });
+  const request = event.request;
+  if (isInCoreCache(request)) {
+    event.respondWidth(
+      caches.open(CORE_CACHE_NAME).then((cache) => cache.match(request.url))
+    );
+    console.log("SW - res served from CACHE");
+  }
 });
