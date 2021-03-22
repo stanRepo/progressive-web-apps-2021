@@ -3,10 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "build": "nodemon ./bin/www",
+    "build": "node ./bin/www",
     "prebuild": "gulp css && gulp js",
-    "build:watch": "gulp watch",
-    "start": "node ./bin/www",
+    "dev:watch": "gulp watch",
+    "predev": "gulp css && gulp js",
     "dev": "nodemon ./bin/www"
   },
   "dependencies": {
