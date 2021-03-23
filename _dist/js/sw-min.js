@@ -1,1 +1,50 @@
-const CORE_CACHE_NAME="core-cache",CORE_ASSETS=["../","../static/style.min.css","../manifest/manifest.webmanifest","../manifest/icon-192x192.png","../offline"];function checkImgRequest(e){console.log(e)}self.addEventListener("install",e=>{e.waitUntil(caches.open("core-cache").then(e=>e.addAll(CORE_ASSETS)).then(()=>self.skipWaiting()).catch(e=>console.error(e)))}),self.addEventListener("activate",e=>{console.log("SW - Active")}),self.addEventListener("fetch",e=>{const c=e.request;isImgGetRequest(e),isInCoreCache(c)&&(console.log(c),e.respondWidth(caches.open("core-cache").then(e=>e.match(c.url))).catch(()=>{e.respondWidth(caches.open("core-cache").then(e=>e.match("/offline")))}),console.log("SW - res served from CACHE"))});
+const CORE_CACHE_NAME = "core-cache";
+const CORE_ASSETS = [
+  "/",
+  "/static/style.min.css",
+  "/manifest/manifest.webmanifest",
+  "/manifest/icon-192x192.png",
+  "/offline",
+];
+
+self.addEventListener("install", (event) => {
+  // do I even exist?
+  event.waitUntil(
+    caches
+      .open(CORE_CACHE_NAME)
+      .then((cache) => cache.addAll(CORE_ASSETS))
+      .then(() => self.skipWaiting())
+      .catch((e) => console.error(e))
+  );
+});
+self.addEventListener("activate", (event) => {
+  // am I active?
+  console.log("SW - Active");
+});
+
+self.addEventListener("fetch", (event) => {
+  const request = event.request;
+  console.log("sfhvaskawkeyfgvasulbfaksbadsfh");
+  console.log(event);
+  if (isImgGetRequest(event)) {
+    console.log(event);
+  }
+
+  if (isInCoreCache(request)) {
+    console.log(request);
+    event
+      .respondWidth(
+        caches.open(CORE_CACHE_NAME).then((cache) => cache.match(request.url))
+      )
+      .catch(() => {
+        event.respondWidth(
+          caches.open(CORE_CACHE_NAME).then((cache) => cache.match("/offline"))
+        );
+      });
+    console.log("SW - res served from CACHE");
+  }
+});
+
+function isImgGetRequest(event) {
+  return true;
+}

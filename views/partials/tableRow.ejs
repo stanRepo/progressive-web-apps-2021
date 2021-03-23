@@ -24,9 +24,7 @@
   <td>
     &nbsp;<%= data[0].DISPLAY.EUR.PRICE%>
     <span class="percentageDeltaPrice"
-      ><%= parseInt(data[0].RAW.EUR.CHANGEPCT24HOUR).toFixed(2).toString()%><b
-        >%</b
-      ></span
+      ><%= data[0].RAW.EUR.CHANGEPCT24HOUR.toFixed(2) %><b>%</b></span
     >
   </td>
   <td class="hideOnSmallerScreen MarketCap">

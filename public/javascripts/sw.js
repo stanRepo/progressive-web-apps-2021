@@ -1,10 +1,10 @@
 const CORE_CACHE_NAME = "core-cache";
 const CORE_ASSETS = [
-  "../",
-  "../static/style.min.css",
-  "../manifest/manifest.webmanifest",
-  "../manifest/icon-192x192.png",
-  "../offline",
+  "/",
+  "/static/style.min.css",
+  "/manifest/manifest.webmanifest",
+  "/manifest/icon-192x192.png",
+  "/offline",
 ];
 
 self.addEventListener("install", (event) => {
@@ -24,7 +24,11 @@ self.addEventListener("activate", (event) => {
 
 self.addEventListener("fetch", (event) => {
   const request = event.request;
-  isImgGetRequest(event);
+  console.log("sfhvaskawkeyfgvasulbfaksbadsfh");
+  console.log(event);
+  if (isImgGetRequest(event)) {
+    console.log(event);
+  }
 
   if (isInCoreCache(request)) {
     console.log(request);
@@ -41,6 +45,6 @@ self.addEventListener("fetch", (event) => {
   }
 });
 
-function checkImgRequest(event) {
-  console.log(event);
+function isImgGetRequest(event) {
+  return true;
 }
