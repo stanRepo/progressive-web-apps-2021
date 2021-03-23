@@ -3,6 +3,18 @@
   <%- include('./partials/head.ejs')%>
 
   <body>
-    DETAILS PAGE <%= obj.RAW.PRICE %>
+    <section><%- include('./partials/header.ejs')%></section>
+    <section>
+      <ul>
+        <li><span>Last Update: </span><%= obj.DISPLAY.LASTUPDATE %></li>
+        <li><span>Price</span><%= obj.DISPLAY.PRICE %></li>
+        <li><span>Volume 24 hrs: </span><%= obj.DISPLAY.VOLUME24HOUR %></li>
+        <li><span>High 24 hrs</span><%= obj.DISPLAY.HIGH24HOUR %></li>
+        <li><span>Low 24 hrs</span><%= obj.DISPLAY.LOW24HOUR %></li>
+        <li><span>CHANGE24HOUR</span><%= obj.DISPLAY.CHANGE24HOUR %></li>
+        <li><span>CHANGEPCT24HOUR</span><%= obj.DISPLAY.CHANGEPCT24HOUR %></li>
+      </ul>
+    </section>
+    <%- include('partials/footer.ejs')%>
   </body>
 </html>

@@ -178,3 +178,31 @@ ul {
     transform: rotate(360deg);
   }
 }
+
+.offlineBannerSection {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.offlineBanner {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  background: red;
+  margin-bottom: -160px;
+  width: 100vw;
+  height: 60px;
+  color: #707070;
+  transition: 1s;
+  position: fixed;
+  bottom: 0;
+}
+
+.slideOfflineBanner {
+  position: fixed;
+  margin-bottom: 0px;
+  transition: 1s;
+  color: #fff;
+}

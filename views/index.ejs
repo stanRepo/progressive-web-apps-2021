@@ -3,9 +3,7 @@
   <%- include('./partials/head.ejs')%>
   <body>
     <main>
-      <header class="title">
-        <a href="#"><h1>X Value</h1></a>
-      </header>
+      <%- include('./partials/header.ejs')%>
       <!-- Input section for searching Tickers and their data -->
 
       <!-- <a href="#details/BTC">#details</a> -->
@@ -30,9 +28,6 @@
       <section class="overview">
         <div class="loader display-none"></div>
         <table class="overviewTable">
-          <h3>A Crypto SPA</h3>
-          <p>The Market is: <span id="marketSentiment"></span></p>
-          <b>X-value = % of all %ΔPrice in EUR in the last 24H.</b>
           <thead>
             <tr>
               <th>#</th>
@@ -56,7 +51,7 @@
         </table>
       </section>
     </main>
-
+    <%- include('partials/footer.ejs')%>
     <script src="/js/start-service-worker-min.js" type="module"></script>
   </body>
 </html>

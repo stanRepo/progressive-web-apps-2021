@@ -3,9 +3,11 @@ var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
+const compression = require("compression");
 
-var indexRouter = require("./routes/index");
+const indexRouter = require("./routes/index");
 const detailsRouter = require("./routes/details");
+const offlineRouter = require("./routes/offline");
 
 var app = express();
 
@@ -18,9 +20,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static("_dist"));
+app.use(compression());
 
 app.use("/details/:coin", detailsRouter);
 app.use("/", indexRouter);
+app.use("/offline", offlineRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

@@ -2,12 +2,13 @@
   <td><%= data[1] %></td>
   <td>
     &nbsp;
-    <a href="details/<%= data[0].CoinInfo.Name%>"
-      ><object
-        data="https://www.cryptocompare.com/<%= data[0].CoinInfo.ImageUrl%>"
-        type="image/png"
-      ></object
-    ></a>
+    <a href="details/<%= data[0].CoinInfo.Name%>">
+      <img
+        src="https://www.cryptocompare.com/<%= data[0].CoinInfo.ImageUrl%>"
+        alt="<%= data[0].CoinInfo.Name%>"
+        srcset=""
+      />
+    </a>
 
     <a href="details/<%= data[0].CoinInfo.Name%>"
       ><%= data[0].CoinInfo.FullName%></a
@@ -21,15 +22,21 @@
   </td>
   <td class="hideOnMediumScreen">&nbsp;<%= data[0].CoinInfo.Name%></td>
   <td>
-    &nbsp;<%= data[0].RAW.EUR.PRICE%>
+    &nbsp;<%= data[0].DISPLAY.EUR.PRICE%>
     <span class="percentageDeltaPrice"
-      ><%= data[0].RAW.EUR.CHANGEPCT24HOUR%><b>%</b></span
+      ><%= parseInt(data[0].RAW.EUR.CHANGEPCT24HOUR).toFixed(2).toString()%><b
+        >%</b
+      ></span
     >
   </td>
   <td class="hideOnSmallerScreen MarketCap">
-    &nbsp;<%= data[0].RAW.EUR.MKTCAP%>
+    &nbsp;<%= data[0].DISPLAY.EUR.MKTCAP%>
   </td>
-  <td class="hideOnSmallScreen">&nbsp; <%= data[0].RAW.EUR.SUPPLY%></td>
-  <td class="hideOnMediumScreen">&nbsp;<%= data[0].RAW.EUR.MKTCAPPENALTY%></td>
+  <td class="hideOnSmallScreen">&nbsp; <%= data[0].DISPLAY.EUR.SUPPLY%></td>
+
+  <td class="hideOnMediumScreen">
+    &nbsp;<%= data[0].DISPLAY.EUR.MKTCAPPENALTY%>
+  </td>
+
   <td class="coin<%= data[0].CoinInfo.Name%> percentageDeltaPrice">&nbsp;</td>
 </tr>
