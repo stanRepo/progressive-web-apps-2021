@@ -36,7 +36,7 @@ Register for free and get your API key on [Cryptocompare](https://min-api.crypto
 - Service Worker Caches files and delivers them from cache when requested.
 - Manifest File added
 
-![Service Worker](/public/images/serviceWorker.jpg)
+![Service Worker](/public/images/serviceWorker.JPG)
 
 ### Week 3
 
