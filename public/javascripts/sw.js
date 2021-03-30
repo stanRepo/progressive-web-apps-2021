@@ -36,8 +36,7 @@ self.addEventListener("activate", (event) => {
 });
 
 self.addEventListener("fetch", (event) => {
-  // request.mode = navigate isn't supported in all browsers
-  // so include a check for Accept: text/html header.
+  // include a check for Accept: text/html header.
   if (
     event.request.mode === "navigate" ||
     (event.request.method === "GET" &&
@@ -57,28 +56,16 @@ self.addEventListener("fetch", (event) => {
       })
     );
   }
+
+  if (
+    event.request.method === "GET" &&
+    event.request.headers.get("accept").includes("image/png")
+  ) {
+    caches.open("IMG").then(function (response) {
+      caches.add(request.response);
+    });
+  }
 });
-
-// self.addEventListener("fetch", (event) => {
-//   console.log(event);
-//   const request = event.request;
-
-//   event
-//     .respondWidth(
-//       caches.open(CORE_CACHE_NAME).then((cache) => {
-//         console.log(`responded from cache with: ${request.url}`);
-//         return cache.match(request.url);
-//       })
-//     )
-//     .catch(() => {
-//       event.respondWidth(
-//         caches.open("offline").then((cache) => {
-//           return cache.match("../offline");
-//         })
-//       );
-//     });
-//   console.log("SW - res served from CACHE");
-// });
 
 function isImgGetRequest(event) {
   return true;
