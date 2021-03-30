@@ -44,6 +44,9 @@ gulp.task("js", function () {
     .src([
       "public/javascripts/start-service-worker.js",
       "public/javascripts/sw.js",
+      "public/javascripts/main.js",
+      "public/javascripts/renderNetworkStatus.js",
+      "public/javascripts/colorPCTChange.js",
     ])
     .pipe(minify({ noSource: true }))
     .pipe(gulp.dest("./_dist/js"));

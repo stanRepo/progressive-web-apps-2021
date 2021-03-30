@@ -4,7 +4,7 @@ const CORE_ASSETS = [
   "/static/style.min.css",
   "/manifest/manifest.webmanifest",
   "/manifest/icon-192x192.png",
-  "/offline",
+  "/static/offline.html",
 ];
 
 self.addEventListener("install", (event) => {
@@ -16,32 +16,55 @@ self.addEventListener("install", (event) => {
       .then(() => self.skipWaiting())
       .catch((e) => console.error(e))
   );
+
+  let offlineRequest = new Request("../offline");
+  event.waitUntil(
+    fetch(offlineRequest).then(function (response) {
+      return caches.open("offline").then(function (cache) {
+        console.log("[oninstall] Cached offline page", response.url);
+        return cache.put(offlineRequest, response);
+      });
+    })
+  );
 });
+
 self.addEventListener("activate", (event) => {
   // am I active?
+
   console.log("SW - Active");
+  console.log(self);
+  return self.clients.claim();
 });
 
 self.addEventListener("fetch", (event) => {
-  const request = event.request;
-  console.log("sfhvaskawkeyfgvasulbfaksbadsfh");
-  console.log(event);
-  if (isImgGetRequest(event)) {
-    console.log(event);
+  // include a check for Accept: text/html header.
+  if (
+    event.request.mode === "navigate" ||
+    (event.request.method === "GET" &&
+      event.request.headers.get("accept").includes("text/html"))
+  ) {
+    event.respondWith(
+      fetch(event.request.url).catch((error) => {
+        // Return the offline page
+        return caches.match("/static/offline.html");
+      })
+    );
+  } else {
+    // Respond with everything else if we can
+    event.respondWith(
+      caches.match(event.request).then(function (response) {
+        return response || fetch(event.request);
+      })
+    );
   }
 
-  if (isInCoreCache(request)) {
-    console.log(request);
-    event
-      .respondWidth(
-        caches.open(CORE_CACHE_NAME).then((cache) => cache.match(request.url))
-      )
-      .catch(() => {
-        event.respondWidth(
-          caches.open(CORE_CACHE_NAME).then((cache) => cache.match("/offline"))
-        );
-      });
-    console.log("SW - res served from CACHE");
+  if (
+    event.request.method === "GET" &&
+    event.request.headers.get("accept").includes("image/png")
+  ) {
+    caches.open("IMG").then(function (response) {
+      caches.add(request.response);
+    });
   }
 });
 
