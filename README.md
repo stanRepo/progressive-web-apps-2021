@@ -41,4 +41,4 @@ Lighthouse report before Optimalization:
 
 Lighthouse report after Optimalization:
 
-![Lighthouse Report](./public/images/lighthouseReportAfter.JPG)
+![Lighthouse Report](/public/images/lighthouseReportAfter.JPG)
