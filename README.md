@@ -41,7 +41,7 @@ Register for free and get your API key on [Cryptocompare](https://min-api.crypto
 ### Week 3
 
 Lighthouse report before Optimalization:
-![lighthouse Report](/public/images/lighthouseAfter.jpg)
+![lighthouse Report](/public/images/lighthouseAfter.JPG)
 
 Lighthouse report after Optimalization:
 
