@@ -37,4 +37,4 @@ Register for free and get your API key on [Cryptocompare](https://min-api.crypto
 
 ### Week 3
 
--
+![Lighthouse Report](_dist/assets/lighthouseReport)
