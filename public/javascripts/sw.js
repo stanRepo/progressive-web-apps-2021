@@ -4,6 +4,7 @@ const CORE_ASSETS = [
   "/static/style.min.css",
   "/manifest/manifest.webmanifest",
   "/manifest/icon-192x192.png",
+  "/static/offline.html",
 ];
 
 self.addEventListener("install", (event) => {
@@ -45,7 +46,7 @@ self.addEventListener("fetch", (event) => {
     event.respondWith(
       fetch(event.request.url).catch((error) => {
         // Return the offline page
-        return caches.match("/offline");
+        return caches.match("/static/offline.html");
       })
     );
   } else {
