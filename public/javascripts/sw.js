@@ -38,6 +38,7 @@ self.addEventListener("activate", (event) => {
 
 self.addEventListener("fetch", (event) => {
   // include a check for Accept: text/html header.
+  console.log("logging fetch");
   if (
     event.request.mode === "navigate" ||
     (event.request.method === "GET" &&
