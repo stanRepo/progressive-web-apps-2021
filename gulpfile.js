@@ -42,8 +42,7 @@ gulp.task("watch", function () {
 gulp.task("js", function () {
   return gulp
     .src([
-      "public/javascripts/start-service-worker.js",
-      "public/javascripts/sw.js",
+  
       "public/javascripts/main.js",
       "public/javascripts/renderNetworkStatus.js",
       "public/javascripts/colorPCTChange.js",

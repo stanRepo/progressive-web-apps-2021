@@ -22,16 +22,20 @@
           /> -->
   </td>
   <td class="hideOnMediumScreen">&nbsp;<%= data[0].CoinInfo.Name%></td>
+  
+  
+  
   <td>
     &nbsp;<%= data[0].DISPLAY.EUR.PRICE%>
     <span class="percentageDeltaPrice"
       ><%= data[0].RAW.EUR.CHANGEPCT24HOUR.toFixed(2) %><b>%</b></span
     >
+   
   </td>
   <td class="hideOnSmallerScreen MarketCap">
     &nbsp;<%= data[0].DISPLAY.EUR.MKTCAP%>
   </td>
-  <td class="hideOnSmallScreen">&nbsp; <%= data[0].DISPLAY.EUR.SUPPLY%></td>
+  <td class="hideOnSmallScreen">&nbsp; <%= data[0].DISPLAY.EUR.SUPPLY %></td>
 
   <td class="hideOnMediumScreen">
     &nbsp;<%= data[0].DISPLAY.EUR.MKTCAPPENALTY%>

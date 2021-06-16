@@ -1,0 +1,17 @@
+     <td>
+                  &nbsp;<%= coin.DISPLAY.EUR.PRICE%>
+                  <span class="percentageDeltaPrice"
+                    ><%= coin.RAW.EUR.CHANGEPCT24HOUR.toFixed(2) %><b>%</b></span
+                  >
+                 
+                </td>
+                <td class="hideOnSmallerScreen MarketCap">
+                  &nbsp;<%= coin.DISPLAY.EUR.MKTCAP%>
+                </td>
+                <td class="hideOnSmallScreen">&nbsp; <%= coin.DISPLAY.EUR.SUPPLY %></td>
+              
+                <td class="hideOnMediumScreen">
+                  &nbsp;<%= coin.DISPLAY.EUR.MKTCAPPENALTY%>
+                </td>
+              
+                <td class="coin<%= coin.CoinInfo.Name%> percentageDeltaPrice">&nbsp;</td>

@@ -1,1 +1,0 @@
-"serviceWorker"in navigator&&window.addEventListener("load",()=>{navigator.serviceWorker.register("/js/sw-min.js").then(function(e){return e.update()}).catch(e=>{console.log(e)})});

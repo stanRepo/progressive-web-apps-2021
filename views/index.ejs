@@ -45,14 +45,63 @@
           </thead>
 
           <tbody>
-            <% obj.forEach(function(coin, i){ %> <%-
-            include('partials/tableRow', {data:[coin, i]}); %> <% }); %>
+            <% obj.forEach(function(coin, i){ try{ %> 
+              
+              <tr>
+                <td><%=  %></td>
+                <td>
+                  &nbsp;
+                  <a href="details/<%= coin.CoinInfo.Name%>">
+                    <img
+                      src="https://www.cryptocompare.com/<%= coin.CoinInfo.ImageUrl%>"
+                      alt="<%= coin.CoinInfo.Name%>"
+                      srcset=""
+                      loading="lazy"
+                    />
+                  </a>
+              
+                  <a href="details/<%= coin.CoinInfo.Name%>"
+                    ><%= coin.CoinInfo.FullName%></a
+                  >
+              
+                  <!-- <img
+                        src="imageNotFound.png"
+                        alt="Image not found"
+                        onerror="this.onerror=null;this.src='{{ FullName }}';"
+                        /> -->
+                </td>
+                <td class="hideOnMediumScreen">&nbsp;<%= coin.CoinInfo.Name%></td>
+                
+                
+                
+                <td>
+                  &nbsp;<%= coin.DISPLAY.EUR.PRICE%>
+                  <span class="percentageDeltaPrice"
+                    ><%= coin.RAW.EUR.CHANGEPCT24HOUR.toFixed(2) %><b>%</b></span
+                  >
+                 
+                </td>
+                <td class="hideOnSmallerScreen MarketCap">
+                  &nbsp;<%= coin.DISPLAY.EUR.MKTCAP%>
+                </td>
+                <td class="hideOnSmallScreen">&nbsp; <%= coin.DISPLAY.EUR.SUPPLY %></td>
+              
+                <td class="hideOnMediumScreen">
+                  &nbsp;<%= coin.DISPLAY.EUR.MKTCAPPENALTY%>
+                </td>
+              
+                <td class="coin<%= coin.CoinInfo.Name%> percentageDeltaPrice">&nbsp;</td>
+              </tr>
+              
+              
+              
+              <% } catch{console.log(`error on: ${coin.CoinInfo.Name}`)} }); %>
           </tbody>
         </table>
       </section>
     </main>
     <%- include('partials/footer.ejs')%>
-    <script src="/js/start-service-worker-min.js"></script>
+    <script src="/start-service-worker.js"></script>
     <script src="/js/main-min.js" type="module"></script>
   </body>
 </html>
