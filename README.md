@@ -56,3 +56,12 @@ This image was taken with Chrome DevTools using the SLOW3G simulating feature of
 We can see here that on FIRST VIEW the images have not been cached yet. Therefore it builds up a waterfall of requests. Thanks to the service worker. These assets are cached and on REPEAT VIEW they are served from memory. In the image below we see the resulting performance:
 
 ![Waterfall](/public/images/waterfallSlow2.JPG)
+
+
+## Manifest
+I've added a manifest.webmanifest file so the site is installable to the user. 
+
+
+## Checklist
+
+
