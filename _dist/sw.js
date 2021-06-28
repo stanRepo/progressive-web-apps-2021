@@ -1,10 +1,13 @@
 const CORE_CACHE_NAME = "core-cache";
 const CORE_ASSETS = [
-  "/",
+  
   "/static/style.min.css",
-  "/manifest/manifest.webmanifest",
-  "/manifest/icon-192x192.png",
-  "/static/offline.html",
+  "/js/renderNetworkStatus-min.js",
+  "/js/colorPCTChange-min.js",
+  "/js/main-min.js",
+  "/js/marketSentiment-min.js"
+
+  
 ];
 
 self.addEventListener("install", (event) => {
@@ -36,39 +39,66 @@ self.addEventListener("activate", (event) => {
   return self.clients.claim();
 });
 
+
+// 
+
 self.addEventListener("fetch", (event) => {
-  // include a check for Accept: text/html header.
-  console.log("logging fetch");
-  if (
-    event.request.mode === "navigate" ||
-    (event.request.method === "GET" &&
-      event.request.headers.get("accept").includes("text/html"))
-  ) {
-    event.respondWith(
-      fetch(event.request.url).catch((error) => {
-        // Return the offline page
-        return caches.match("/static/offline.html");
-      })
-    );
-  } else {
-    // Respond with everything else if we can
-    event.respondWith(
-      caches.match(event.request).then(function (response) {
-        return response || fetch(event.request);
-      })
-    );
-  }
+  
+  // If a request doesn't match anything in the IMG cache, get it from the network, send it to the page and add it to the cache.
+  // if a fetch fails, load offline page
 
-  if (
-    event.request.method === "GET" &&
-    event.request.headers.get("accept").includes("image/png")
-  ) {
-    caches.open("IMG").then(function (response) {
-      caches.add(request.response);
-    });
-  }
-});
+  var request = event.request;
+  if(request.method === 'GET'){
 
-function isImgGetRequest(event) {
-  return true;
-}
+// console.log(request.headers.get("Content-Type"))
+    // check whether requesting an image 
+    if(request.headers.get("Accept").includes('image/apng') && !request.url.includes('3000/static/icon')  && request.url !== 'http://localhost:3000/'){
+
+     event.respondWith(
+        // open cache
+    caches.open('IMG').then(function(cache){
+      // check if requested item exists in cache
+      return cache.match(event.request).then(function(response){
+        // if it exists return the request, else fetch request
+        return response || fetch(event.request).then(function(response){
+          // when fetched, put it in the cache
+      
+          cache.put(event.request,response.clone())
+          return response
+        })
+      })
+    })
+      )
+
+
+    } else{
+      // not requesting an image.
+      event.respondWith(
+      // open cache
+      caches.open('core-cache').then(function(cache){
+        // check if requested item exists in cache
+        return cache.match(event.request).then(function(response){
+          // if it exists return the request, else fetch request
+          return response || fetch(event.request)
+        })
+      })
+
+   
+  // fetch failed, load offline page
+      .catch(function(error){
+        console.error('[onfetch] Failed. Serving cached offline page')
+        return caches.open('offline').then(function(cache){
+          return cache.match('offline')
+        })
+      })
+    )
+
+    }
+
+
+}})
+
+
+
+
+

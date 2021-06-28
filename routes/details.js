@@ -8,6 +8,7 @@ router.get("/", function (req, res, next) {
   const coin = req.baseUrl.split("/details/")[1];
   const url = endPoints.baseLatest + coin + endPoints.extensionLatest;
   apiSingle(url).then((data) => {
+ console.log(data)
     res.render("details.ejs", { obj: data[0] });
   });
 });

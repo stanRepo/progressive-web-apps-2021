@@ -36,10 +36,10 @@
               <th>Price</th>
               <th class="hideOnSmallerScreen">Market Capitalization</th>
               <th class="hideOnSmallScreen">Cirulating Supply</th>
-              <th class="hideOnMediumScreen">Max Supply</th>
+        
               <th class="">
                 X Value <br />
-                avg: <span id="headerX" class="percentageDeltaPrice"></span>
+                avg: <span id="headerX" class=""></span>
               </th>
             </tr>
           </thead>
@@ -48,7 +48,7 @@
             <% obj.forEach(function(coin, i){ try{ %> 
               
               <tr>
-                <td><%=  %></td>
+                <td><%= i+1 %></td>
                 <td>
                   &nbsp;
                   <a href="details/<%= coin.CoinInfo.Name%>">
@@ -86,16 +86,15 @@
                 </td>
                 <td class="hideOnSmallScreen">&nbsp; <%= coin.DISPLAY.EUR.SUPPLY %></td>
               
-                <td class="hideOnMediumScreen">
-                  &nbsp;<%= coin.DISPLAY.EUR.MKTCAPPENALTY%>
-                </td>
+        
               
-                <td class="coin<%= coin.CoinInfo.Name%> percentageDeltaPrice">&nbsp;</td>
+                <td class="coin<%= coin.CoinInfo.Name%> ">&nbsp;</td>
               </tr>
               
               
               
-              <% } catch{console.log(`error on: ${coin.CoinInfo.Name}`)} }); %>
+              <% } catch{console.log(`error on: ${coin.CoinInfo.Name}. [Adding Fallback Text]`)} }); %>
+              
           </tbody>
         </table>
       </section>

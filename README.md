@@ -57,11 +57,45 @@ We can see here that on FIRST VIEW the images have not been cached yet. Therefor
 
 ![Waterfall](/public/images/waterfallSlow2.JPG)
 
+-----------
 
 ## Manifest
 I've added a manifest.webmanifest file so the site is installable to the user. 
 
+# Serving Offline Page
+
+When the user is offline the page returns a precached HTML template to the browser.  This way the user can still view some relative content instead of looking at an empty screen. This is done by the following code in the sw.js file.
+
+*First in the [install] event*
+
+![precache Offline](/public/images/precacheOffline.SVG)
+
+ 
+*Then in the [Fetch] event*
+
+![fetch Offline](/public/images/fetchOffline.SVG)
 
 ## Checklist
+[X] Rendering WAFS App
+[X] Service Worker added
+[X] Serving offline page when fetch fails
+[X] Precaching critical assets
+[X] Manifest File Added. Site is installable
+[X] Service Worker Caches IMG files (crypto icons), repeat view has increased loading speed
+[X] Added news articles to the offline page. Giving the user "something to do" while they're offline
 
+
+---------------
+
+
+# Revision
+
+Here I will explain the stuff I've added to the previous version of this repository.
+
+## Old Feedback
+My feedback included a couple things.
+
+1. Live Version Doesn't work. App Doesn't look nice
+2. Offline page doesn't work
+3. Minifying documentation incomplete
 

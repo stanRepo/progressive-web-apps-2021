@@ -1,2 +1,36 @@
-OOPS YOU ARE OFFLINE
+<!DOCTYPE html>
+<html lang="en">
 
+    <%- include('./partials/head.ejs')%>
+    <body>
+        <main>
+<header>
+    <h1>Uh oh!</h1>
+<h2>Looks like you have no internet connection</h2>
+<h3>Here's some crypto news you might like to read in the meantime.</h3>
+</header>
+
+<section class="news-articles">
+
+    <% obj.forEach((article, i)=>{ %>
+        <article class="news-article">
+            
+    <div><%= i +1 %></div>
+    <h3 class="article-title"><%= article.title%></h3>
+    <a href="<%= article.url %>"><p class="article-source">Source:<%= article.source%></p></a>
+    <p class="tags"><%= article.tags %></p>
+    <p class="date-published"> Published on: <%= new Date(article.published_on * 1000)%></p>
+    <p class="article-body"><%= article.body %></p>
+    
+</article>
+
+<% }) %>
+</section>
+
+</main>
+
+<%- include('partials/footer.ejs')%>
+<script src="/start-service-worker.js"></script>
+<script src="/js/main-min.js" type="module"></script>
+</body>
+</html>

@@ -29,6 +29,7 @@ const endPoints = {
     subject: "fsyms=", // currencies seperated by commas followed by an ampersant (&),
     valuedIn: "tsyms=", //tsyms=USD,EUR,
   },
+  news: "https://min-api.cryptocompare.com/data/v2/news/?lang=EN"
 };
 //console.log(endPoints.getSingle("ADA", "EUR"));
 

@@ -46,6 +46,7 @@ gulp.task("js", function () {
       "public/javascripts/main.js",
       "public/javascripts/renderNetworkStatus.js",
       "public/javascripts/colorPCTChange.js",
+      "public/javascripts/marketSentiment.js"
     ])
     .pipe(minify({ noSource: true }))
     .pipe(gulp.dest("./_dist/js"));

@@ -95,11 +95,11 @@ tr td:nth-child(3) {
   /* width: 20vw; */
 }
 .greenNumber {
-  color: rgb(0, 197, 0);
+  color: black;
   background-color: rgb(194, 255, 194);
 }
 .redNumber {
-  color: red;
+  color: black;
   background-color: rgb(255, 191, 191);
 }
 span {
@@ -133,6 +133,8 @@ details {
   .hideOnSmallScreen {
     display: none;
   }
+
+ 
 }
 @media screen and (max-width: 420px) {
   .hideOnSmallerScreen {
@@ -215,3 +217,42 @@ ul {
 .detailsSection > ul > li > span {
   font-size: larger;
 }
+
+
+/* Offline page */
+
+.news-articles{
+  display:flex;
+  flex-direction:column;
+  align-items: center;;
+}
+.news-article{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 47px 5%;
+  border: 3px solid black;
+  max-width: 500px;
+}
+
+
+.article-title{
+  font-size: x-large;
+  text-decoration: none;
+}
+
+.tags{
+  letter-spacing: 7px;
+}
+.date-published{
+  color:grey;
+
+}
+
+.article-body{
+text-align: initial;
+
+}
+
+/* end of offline page */
