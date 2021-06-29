@@ -7,9 +7,9 @@
   },
   "scripts": {
     "start": "node app.js",
-    "build": "node app.js",
+    "prestart": "npm run build",
+    "build": "gulp css && gulp js",
     "deploy": "node app.js",
-    "prebuild": "gulp css && gulp js",
     "dev:watch": "gulp watch",
     "predev": "gulp css && gulp js",
     "dev": "node app.js"
@@ -22,7 +22,6 @@
     "ejs": "~2.6.1",
     "express": "~4.16.1",
     "fetch": "^1.1.0",
-    "heroku": "^7.51.0",
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1"
   },
