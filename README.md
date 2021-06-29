@@ -86,12 +86,12 @@ When the user is offline the page returns a precached HTML template to the brows
 
 *First in the [install] event*
 
-![precache Offline](/public/images/precacheOffline.SVG)
+![precache Offline](/public/images/precacheOffline.svg)
 
  
 *Then in the [Fetch] event*
 
-![fetch Offline](/public/images/fetchOffline.SVG)
+![fetch Offline](/public/images/fetchOffline.svg)
 
 ## Checklist
 
