@@ -94,12 +94,20 @@ When the user is offline the page returns a precached HTML template to the brows
 ![fetch Offline](/public/images/fetchOffline.SVG)
 
 ## Checklist
+
 [X] Rendering WAFS App
+
+
 [X] Service Worker added
+
 [X] Serving offline page when fetch fails
+
 [X] Precaching critical assets
+
 [X] Manifest File Added. Site is installable
+
 [X] Service Worker Caches IMG files (crypto icons), repeat view has increased loading speed
+
 [X] Added news articles to the offline page. Giving the user "something to do" while they're offline
 
 
@@ -152,7 +160,19 @@ Here is the code that deals with fetching the offline page when te service worke
 12. I created seperate caches for different use cases of the app. I did this only for clarity since I cache a lot of assets (especcially images). 
 ![caches](/public/images/caches.JPG)
 
-13. I've made significant improvements with the Lighthouse Report Scores. Even though extra js code was added I managed to increase the loading statistics. This is seen on the images below.
+13. Minification Documentation
+
+Below are images of the gulpfile.js. They show how I minify my css and js assets so theres less bulk on the network. I made 3 tasks. One for Deleting Old Minified JS. One for Minifying CSS and one for Minifying JS.
+
+Minify CSS|  Minify JS | Delete Old JS
+:-------------------------:|:-------------------------:|:-------------------------:
+![Minify CSS](/public/images/cssTask.svg)  |  ![Minify JS](/public/images/jsTask.svg) | ![Delete Old JS](/public/images/deleteOldJS.svg) 
+
+
+
+
+
+14. I've made significant improvements with the Lighthouse Report Scores. Even though extra js code was added I managed to increase the loading statistics. This is seen on the images below.
 
 Old Report (Pre Revision)            |  New Report (After Revision)
 :-------------------------:|:-------------------------:
@@ -167,5 +187,4 @@ Slow 3G | Fast3G
 ![Slow3G trace](/public/images/TimeFrameLoading.JPG)  |  ![Fast3G trace)](/public/images/TimeFrameLoadingFast.JPG)
 
 At the green knobs on the bottom side of the image you can see the First Paint, First Contentfull Paint and the Largest Contentfull Paint. The Blue Knob shows when the DOMContentLoaded Event Triggered.
-
 

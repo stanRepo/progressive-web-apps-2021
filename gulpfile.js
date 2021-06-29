@@ -19,8 +19,8 @@ function deleteOldJS() {
   });
 }
 deleteOldJS();
-// css tasks
 
+// css tasks
 gulp.task("css", function () {
   return (
     gulp
@@ -39,6 +39,7 @@ gulp.task("watch", function () {
   gulp.watch("./public/stylesheets/*.css");
 });
 
+// Minify JS
 gulp.task("js", function () {
   return gulp
     .src([
