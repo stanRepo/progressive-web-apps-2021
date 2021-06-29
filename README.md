@@ -2,6 +2,24 @@
 
 This project is based on the previous course Web App From Scratch. That repository can be found [here](https://github.com/stanRepo/web-app-from-scratch-2021)
 
+
+# Index
+
+- [Course: Progressive Web App](#course--progressive-web-app)
+  * [Setup](#setup)
+  * [Course Contents](#course-contents)
+    + [Week 1](#week-1)
+    + [Week 2](#week-2)
+    + [Week 3](#week-3)
+  * [Manifest](#manifest)
+- [Serving Offline Page](#serving-offline-page)
+  * [Checklist](#checklist)
+- [Revision](#revision)
+  * [Old Feedback](#old-feedback)
+
+
+
+
 ## Setup
 
 1. Clone this repository to your device
@@ -98,4 +116,56 @@ My feedback included a couple things.
 1. Live Version Doesn't work. App Doesn't look nice
 2. Offline page doesn't work
 3. Minifying documentation incomplete
+
+Heres a list of things I did to improve my code:
+
+1. Added X value functionality from WAFS app
+2. Fixed Service worker errors
+3. Caching images (crypto icons) with service worker and rendering them from cache on repeat view.
+
+Since I collect a lot of these icons (always 100) it was of most importance to do it efficiently when repeat view happens. Below is an image of the service worker code that deals with this. It originates in the /_dist/sw.js file
+
+![Image Requests](/public/images/ImageRequests.svg)
+
+
+4. Offline page works now
+5. Added news articles with API calls to the offline page
+
+On the image below you can see a screenshot of the offline page working. The page uses server side rendering and since the page is cached when the device performs first view of the page. The API call for the articles is handled successfully and the articles appear on the offline page.
+
+![Offline Page](/public/images/OfflinePage.jpg)
+
+Here is the code that deals with fetching the offline page when te service worker installs
+
+![Fetch Offline](/public/images/fetchOffline.svg)
+
+
+
+6. added styling to offline page
+7. Updated readme
+8. added seperate head.ejs partial for details route
+9. cleaned up unused code
+10. added new js files to gulpfile for minification
+
+11. It turned out that minifying my service worker and manifest files created errors. Thats why pre-revision I had a lot of troubles with improving my skill. After I excluded them I was able to really work on that part of the assignment. 
+
+12. I created seperate caches for different use cases of the app. I did this only for clarity since I cache a lot of assets (especcially images). 
+![caches](/public/images/caches.JPG)
+
+13. I've made significant improvements with the Lighthouse Report Scores. Even though extra js code was added I managed to increase the loading statistics. This is seen on the images below.
+
+Old Report (Pre Revision)            |  New Report (After Revision)
+:-------------------------:|:-------------------------:
+![Old Report (Pre Revision)](/public/images/lighthouseAfter2.JPG)  |  ![New Report (After Revision)](/public/images/lighthouseRevisionIncognito.JPG)
+
+------------
+
+The next image is a trace of the website loading in repeat view on slow3G connection speed and the same trace on repeat view on fast3G connection speed. 
+
+Slow 3G | Fast3G
+:-------------------------:|:-------------------------:
+![Slow3G trace](/public/images/TimeFrameLoading.JPG)  |  ![Fast3G trace)](/public/images/TimeFrameLoadingFast.JPG)
+
+At the green knobs on the bottom side of the image you can see the First Paint, First Contentfull Paint and the Largest Contentfull Paint. The Blue Knob shows when the DOMContentLoaded Event Triggered.
+
 

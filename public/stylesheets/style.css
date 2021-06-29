@@ -234,6 +234,7 @@ ul {
   padding: 47px 5%;
   border: 3px solid black;
   max-width: 500px;
+  background-color: lavender;
 }
 
 
@@ -252,6 +253,7 @@ ul {
 
 .article-body{
 text-align: initial;
+font-family: sans-serif;
 
 }
 

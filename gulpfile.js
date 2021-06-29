@@ -42,7 +42,6 @@ gulp.task("watch", function () {
 gulp.task("js", function () {
   return gulp
     .src([
-  
       "public/javascripts/main.js",
       "public/javascripts/renderNetworkStatus.js",
       "public/javascripts/colorPCTChange.js",

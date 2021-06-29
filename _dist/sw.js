@@ -43,17 +43,13 @@ self.addEventListener("activate", (event) => {
 // 
 
 self.addEventListener("fetch", (event) => {
-  
   // If a request doesn't match anything in the IMG cache, get it from the network, send it to the page and add it to the cache.
   // if a fetch fails, load offline page
-
   var request = event.request;
   if(request.method === 'GET'){
-
 // console.log(request.headers.get("Content-Type"))
     // check whether requesting an image 
     if(request.headers.get("Accept").includes('image/apng') && !request.url.includes('3000/static/icon')  && request.url !== 'http://localhost:3000/'){
-
      event.respondWith(
         // open cache
     caches.open('IMG').then(function(cache){
@@ -62,14 +58,12 @@ self.addEventListener("fetch", (event) => {
         // if it exists return the request, else fetch request
         return response || fetch(event.request).then(function(response){
           // when fetched, put it in the cache
-      
           cache.put(event.request,response.clone())
           return response
         })
       })
     })
-      )
-
+  )
 
     } else{
       // not requesting an image.
@@ -82,7 +76,6 @@ self.addEventListener("fetch", (event) => {
           return response || fetch(event.request)
         })
       })
-
    
   // fetch failed, load offline page
       .catch(function(error){
@@ -91,12 +84,9 @@ self.addEventListener("fetch", (event) => {
           return cache.match('offline')
         })
       })
-    )
-
-    }
-
-
-}})
+    )}
+  }
+})
 
 
 

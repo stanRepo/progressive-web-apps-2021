@@ -9,12 +9,14 @@ export default function renderNetworkStatus() {
     banner.classList.remove("slideOfflineBanner");
     console.log("NEW CONNECTION TO INTERNET");
   });
-
-  fetch('/').catch(()=>{
+setInterval(checkNetworkStatus(),5000)
+async function checkNetworkStatus(){
+  await fetch('/').catch(()=>{
     window.addEventListener("offline", (e) => {
       banner.classList.add("slideOfflineBanner");
       console.log("LOST CONNECTION TO INTERNET");
     });
   })
+}
 
 }

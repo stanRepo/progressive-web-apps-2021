@@ -48,7 +48,7 @@ const marketSentiment = {
 
 
     // create a nice list with all the changes per coin in percentages
-    listOfPercentagesNodes.forEach(node=>{
+    listOfPercentagesNodes.forEach((node)=>{
       
     listOfPercentages.push(
         {
