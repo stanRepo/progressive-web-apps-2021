@@ -133,7 +133,7 @@ Heres a list of things I did to improve my code:
 
 Since I collect a lot of these icons (always 100) it was of most importance to do it efficiently when repeat view happens. Below is an image of the service worker code that deals with this. It originates in the /_dist/sw.js file
 
-![Image Requests](/public/images/ImageRequests.svg)
+![Image Requests](/public/images/imageRequests.svg)
 
 
 4. Offline page works now
@@ -141,7 +141,7 @@ Since I collect a lot of these icons (always 100) it was of most importance to d
 
 On the image below you can see a screenshot of the offline page working. The page uses server side rendering and since the page is cached when the device performs first view of the page. The API call for the articles is handled successfully and the articles appear on the offline page.
 
-![Offline Page](/public/images/OfflinePage.jpg)
+![Offline Page](/public/images/OfflinePage.JPG)
 
 Here is the code that deals with fetching the offline page when te service worker installs
 
@@ -184,7 +184,7 @@ The next image is a trace of the website loading in repeat view on slow3G connec
 
 Slow 3G | Fast3G
 :-------------------------:|:-------------------------:
-![Slow3G trace](/public/images/TimeFrameLoading.JPG)  |  ![Fast3G trace)](/public/images/TimeFrameLoadingFast.JPG)
+![Slow3G trace](/public/images/timeFrameLoading.JPG)  |  ![Fast3G trace)](/public/images/timeFrameLoadingFast.JPG)
 
 At the green knobs on the bottom side of the image you can see the First Paint, First Contentfull Paint and the Largest Contentfull Paint. The Blue Knob shows when the DOMContentLoaded Event Triggered.
 
