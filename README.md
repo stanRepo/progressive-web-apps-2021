@@ -128,6 +128,9 @@ My feedback included a couple things.
 Heres a list of things I did to improve my code:
 
 1. Added X value functionality from WAFS app
+
+This refactoring part included adding javascript that added either red or green colors values shown in the app retrieved from the API cryptocompare. This makes the app look better and its easier for the user to understand what the data means.
+
 2. Fixed Service worker errors
 3. Caching images (crypto icons) with service worker and rendering them from cache on repeat view.
 
@@ -167,8 +170,6 @@ Below are images of the gulpfile.js. They show how I minify my css and js assets
 Minify CSS|  Minify JS | Delete Old JS
 :-------------------------:|:-------------------------:|:-------------------------:
 ![Minify CSS](/public/images/cssTask.svg)  |  ![Minify JS](/public/images/jsTask.svg) | ![Delete Old JS](/public/images/deleteOldJS.svg) 
-
-
 
 
 
