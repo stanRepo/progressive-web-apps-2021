@@ -7,7 +7,7 @@
   },
   "scripts": {
     "start": "node app.js",
-    "prestart": "npm run build",
+    
     "build": "gulp css && gulp js",
     "deploy": "node app.js",
     "dev:watch": "gulp watch",
