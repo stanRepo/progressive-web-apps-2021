@@ -1,7 +1,9 @@
+
 # Course: Progressive Web App
 
-This project is based on the previous course Web App From Scratch. That repository can be found [here](https://github.com/stanRepo/web-app-from-scratch-2021)
+Live Demo: https://pwa2021.herokuapp.com/
 
+This project is based on the previous course Web App From Scratch. That repository can be found [here](https://github.com/stanRepo/web-app-from-scratch-2021)
 
 # Index
 
