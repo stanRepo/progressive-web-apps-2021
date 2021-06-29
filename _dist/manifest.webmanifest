@@ -5,6 +5,7 @@
   "scope": "/",
   "start_url": "/",
   "name": "X-value",
+  "orientation": "portrait-primary",
   "short_name": "XV",
   "description": "See which crypto moves extraordinary",
   "icons": [
