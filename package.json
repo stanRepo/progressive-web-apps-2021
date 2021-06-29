@@ -7,6 +7,7 @@
   },
   "scripts": {
     "build": "node ./app.js",
+    "deploy": "node index.js",
     "prebuild": "gulp css && gulp js",
     "dev:watch": "gulp watch",
     "predev": "gulp css && gulp js",
