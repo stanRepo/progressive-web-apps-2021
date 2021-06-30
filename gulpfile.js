@@ -3,6 +3,10 @@ const plumber = require("gulp-plumber");
 const rename = require("gulp-rename");
 const cleanCSS = require("gulp-clean-css");
 const minify = require("gulp-minify");
+const concat = require('gulp-concat');
+const sourcemaps = require('gulp-sourcemaps');
+ 
+
 const fs = require("fs");
 const path = require("path");
 
@@ -49,5 +53,8 @@ gulp.task("js", function () {
       "public/javascripts/marketSentiment.js"
     ])
     .pipe(minify({ noSource: true }))
+    .pipe(sourcemaps.init())
+    .pipe(concat('concatenated.js'))
+    .pipe(sourcemaps.write())
     .pipe(gulp.dest("./_dist/js"));
 });
